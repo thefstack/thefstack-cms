@@ -1,0 +1,92 @@
+.blogHeaderContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px 20px;
+  background-color: #ebebeb;
+  gap: 15px;
+  width: 100vw;
+  z-index: 999;
+}
+
+.blogHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  white-space: nowrap; /* Prevent wrapping to the next line */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  flex-grow: 1;
+}
+
+.blogHeader::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.scrollButton {
+  border: none;
+  height: 100%;
+  padding: 2px;
+  cursor: pointer;
+  font-size: 1.1em;
+  z-index: 1;
+
+}
+
+.scrollButton.left {
+  left: 0;
+}
+
+.scrollButton.right {
+  right: 0;
+}
+
+.blogHeader select {
+  padding: 5px;
+  font-size: 1em;
+}
+
+.categoryList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  white-space: nowrap; /* Prevent wrapping to the next line */
+}
+
+.categoryItem {
+  position: relative;
+}
+
+.categoryItem button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.subcategoryList {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+.categoryItem:hover .subcategoryList {
+  display: block;
+}
+
+.subcategoryItem button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: left;
+}

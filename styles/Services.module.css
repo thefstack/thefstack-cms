@@ -1,0 +1,51 @@
+.services {
+  margin-bottom: 4rem;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.service {
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.service h3{
+  font-size: 1.4rem;
+  text-align: center;
+}
+.service:hover{
+  background-color: var(--background-color-hover)
+}
+
+
+.icon {
+  width:100%;
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.service h3 {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
