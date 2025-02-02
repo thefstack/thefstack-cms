@@ -6,6 +6,7 @@ import { useSession, signOut } from "next-auth/react"; // Import useSession and 
 import { useState } from "react";
 import { FiHome, FiUser, FiMenu, FiX } from "react-icons/fi";
 import styles from "@/styles/Header.module.css";
+import Image from "next/image";
 
 export default function Header() {
   const { data: session } = useSession(); // Get the session data
@@ -21,7 +22,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Your Logo
+          <Image src="/logo.svg" alt="Hero Image" width={100} height={40} className={styles.mainLogo}/>
         </Link>
         <button className={styles.menuButton} onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <FiX /> : <FiMenu />}

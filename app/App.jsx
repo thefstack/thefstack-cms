@@ -14,6 +14,10 @@ const App = ({children}) => {
     if (status !== "loading") {
       setIsLoading(false) // Once session is determined, stop loading
     }
+
+    //  Timeout to prevent infinite loading
+    const timeout = setTimeout(() => setIsLoading(false), 5000);
+    return () => clearTimeout(timeout);
   }, [status])
 
   // Show loading spinner while checking session

@@ -1,6 +1,6 @@
 .header {
   background-color: var(--background-color);
-  padding: 0.7rem 0;
+  padding-top: 0.4rem;
   z-index: 999;
 }
 
@@ -12,7 +12,11 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.mainLogo{
+  width: 100px;
+  height: 100%;
+  margin-left: 10px;
+}
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -28,6 +32,7 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--secondary-color);
+  border: none;
 }
 
 .navLink:hover {
