@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Footer from "@/components/Footer"
 import Loading from '@/components/Loading'
 import { useSession } from 'next-auth/react'
+import "./globals.css"
 
 const App = ({children}) => {
 
@@ -26,8 +27,8 @@ const App = ({children}) => {
   }
 
   return (
-    <section className="flex flex-col h-screen justify-between">
-    <div style={{position:'absolute', width:"100%", zIndex:999}}><Header /></div>
+    <section className="flex flex-col h-screen justify-between ">
+    <div style={{position:'fixed', width:"100%", zIndex:999}}><Header /></div>
     <main className="flex-1 pt-[var(--main-header-padding-top)]">{children}</main>
     <Footer />
     </section>

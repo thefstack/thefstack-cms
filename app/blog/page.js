@@ -56,7 +56,7 @@ export default function BlogPage() {
   };
 
   return (
-    <div style={{ padding: "1rem 2rem" }}>
+    <div style={{ padding: "1rem 2rem" }} >
       <ul className={styles.blogList}>
         {Array.isArray(sortedBlogs) &&
           sortedBlogs.map((blog) => (

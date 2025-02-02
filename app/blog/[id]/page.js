@@ -48,7 +48,12 @@ export default function BlogDetailPage() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - (window.innerHeight / 2) + (element.clientHeight / 2);
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       setShowToc(false); // Hide the table of contents after clicking a link
     }
   };
