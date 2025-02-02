@@ -22,7 +22,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <Image src="/logo.svg" alt="Hero Image" width={100} height={40} className={styles.mainLogo}/>
+          <Image src="/logo.svg" alt="Hero Image" width={100} height={40} className={styles.mainLogo} priority/>
         </Link>
         <button className={styles.menuButton} onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <FiX /> : <FiMenu />}

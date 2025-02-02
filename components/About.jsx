@@ -7,7 +7,7 @@ export default function About() {
       <h2>About Me</h2>
       <div className={styles.content}>
         <div className={styles.imageWrapper}>
-          <Image src="/profile-picture.png" alt="Profile Picture" width={300} height={200} layout="responsive" />
+          <Image src="/profile-picture.png" alt="Profile Picture" width={300} height={200} layout="responsive" priority />
         </div>
         <div className={styles.text}>
           <p>
