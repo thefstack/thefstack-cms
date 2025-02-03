@@ -10,30 +10,14 @@ import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 import Image from "next/image";
 
-export default function BlogDetailClient({ id }) {
-  const [blog, setBlog] = useState(null);
+export default function BlogDetailClient({ blog }) {
   const [toc, setToc] = useState([]);
   const [showToc, setShowToc] = useState(false);
   const tocRef = useRef(null);
 
   useEffect(() => {
-    if (id) {
-      async function fetchBlog() {
-        try {
-          const response = await fetch(`/api/blogs/${id}`);
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          setBlog(data);
-          generateToc(data.content);
-        } catch (error) {
-          console.error("Failed to fetch blog:", error);
-        }
-      }
-      fetchBlog();
-    }
-  }, [id]);
+    generateToc(blog.content);
+  }, [blog.content]);
 
   const generateToc = async (content) => {
     const toc = [];
@@ -99,7 +83,7 @@ export default function BlogDetailClient({ id }) {
         </ul>
       </div>
       <div className={styles.blogDetail}>
-        <Image src={blog.thumbnail} alt={blog.title} width={400} height={400} style={{}} />
+        <Image src={blog.thumbnail} alt={blog.title} width={400} height={300} style={{}} />
         <div>
           <h1>{blog.title}</h1>
           <ReactMarkdown
