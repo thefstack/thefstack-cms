@@ -9,6 +9,9 @@ const ToastEditor = forwardRef((props, ref) => {
     getMarkdown: () => {
       return editorRef.current?.getInstance()?.getMarkdown();
     },
+    getHTML: () => {
+      return editorRef.current?.getInstance()?.getHTML();
+    },
   }));
 
   const handleFocus = () => {
@@ -29,10 +32,38 @@ const ToastEditor = forwardRef((props, ref) => {
       previewStyle="vertical"
       height="400px"
       initialEditType="markdown"
-      initialValue={props.initialValue || "Hi there!"} // Use initialValue from props
+      initialValue={props.initialValue || "Hi there!"}
       ref={editorRef}
       onFocus={handleFocus}
       onChange={handleChange}
+      usageStatistics={false}
+      useCommandShortcut={true} // Enable keyboard shortcuts
+      hooks={{
+        addImageBlobHook: (blob, callback) => {
+          // Handle image upload here
+          callback(URL.createObjectURL(blob), "image-alt-text");
+          return false;
+        },
+      }}
+      customHTMLRenderer={{
+        htmlBlock: {
+          div(node) {
+            return [
+              {
+                type: "openTag",
+                tagName: "div",
+                outerNewLine: true,
+              },
+              { type: "html", content: node.literal },
+              {
+                type: "closeTag",
+                tagName: "div",
+                outerNewLine: true,
+              },
+            ];
+          },
+        },
+      }}
     />
   );
 });

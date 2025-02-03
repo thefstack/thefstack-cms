@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import remarkToc from "remark-toc";
 import styles from "@/styles/BlogPage.module.css";
 
 export default function BlogPage() {
@@ -59,25 +60,30 @@ export default function BlogPage() {
     <div style={{ padding: "1rem 2rem" }} >
       <ul className={styles.blogList}>
         {Array.isArray(sortedBlogs) &&
-          sortedBlogs.map((blog) => (
-            <li key={blog.id} className={styles.blogItem}>
-              {blog.thumbnail && (
-                <img
-                  src={blog.thumbnail}
-                  alt={blog.title}
-                  className={styles.thumbnail}
-                />
-              )}
-              <h3>{blog.title}</h3>
-              <ReactMarkdown>{`${blog.content.substring(
-                0,
-                100
-              )}...`}</ReactMarkdown>
-              <Link href={`/blog/${blog._id}`} className={styles.readMore}>
-                Read More
-              </Link>
-            </li>
-          ))}
+          sortedBlogs.map((blog) => {
+            const contentLength = blog.title.length > 20 ? 120 : 100;
+            return (
+              <li key={blog.id} className={styles.blogItem}>
+                {blog.thumbnail && (
+                  <img
+                    src={blog.thumbnail}
+                    alt={blog.title}
+                    className={styles.thumbnail}
+                  />
+                )}
+                <h3>{blog.title}</h3>
+                <ReactMarkdown
+                  remarkPlugins={[remarkToc]}
+                >{`${blog.content.substring(
+                  0,
+                  contentLength
+                )}...`}</ReactMarkdown>
+                <Link href={`/blog/${blog._id}`} className={styles.readMore}>
+                  Read More
+                </Link>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

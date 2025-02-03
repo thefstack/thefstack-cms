@@ -1,6 +1,6 @@
 export const categories = {
   Technology: ["Web Development", "AI", "Blockchain", "Cybersecurity", "Software Development"],
-  WebDevelopment: ["MERN Stack", "Full Stack", "Frontend", "Backend", "Database", "DevOps"],
+  WebDevelopment: ["MERN Stack", "Full Stack", "Frontend", "Backend", "Database", "DevOps", "Next.js & OpenAI Integration"],
   Programming: ["JavaScript", "Python", "Java", "C#", "Ruby"],
   // DevOps: ["CI/CD", "Containerization", "Kubernetes", "Cloud Computing", "Infrastructure as Code"],
   // DataScience: ["Machine Learning", "Data Analysis", "Big Data", "Data Visualization", "Natural Language Processing"],

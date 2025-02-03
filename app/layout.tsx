@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "Hire India's #1 affordable full-stack developer specializing in Next.js, React, Node.js & AI integration. 60% cost-effective web solutions. View portfolio, read the blog, and get a free consultation today!",
   keywords:
-    "freelancer, freelance web developer India, freelance India, low cost developer, web development, SEO services, digital marketing, React.js developer, Node.js expert, Next.js developer, full-stack development, affordable freelancer, TheFStack, hire freelancer, India freelancer, responsive design, API development, OpenAI integration, blog, portfolio, professional web developer, AI integration, full-stack developer India, low cost SEO services, thefstack, thefstack raj, raj freelance developer, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack web development, thefstack seo, thefstack blog, thefstack portfolio, thefstack services, thefstack contact, thefstack about, thefstack pricing, thefstack testimonials, thefstack projects, thefstack reviews, thefstack clients, thefstack testimonials, thefstack services, thefstack contact, thefstack about, thefstack pricing, thefstack testimonials, thefstack projects, thefstack reviews, thefstack clients",
+    "freelancer, freelance web developer India, freelance India, low cost developer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack development, affordable freelancer, TheFStack, hire freelancer, India freelancer, API development, blog, AI integration, full-stack developer India, thefstack, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack thefstack seo, thefstack blog, thefstack portfolio, thefstack services, thefstack about, thefstack testimonials, thefstack projects, thefstack reviews",
   author: "Raj",
   metadataBase: new URL("https://www.thefstack.com"),
   alternates: {
@@ -109,6 +109,50 @@ export default function RootLayout({
                 "@type": "SearchAction",
                 "target": "https://www.thefstack.com/",
               }
+            }),
+          }}
+        />
+        {/* Structured Data: LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "TheFStack",
+              "url": "https://www.thefstack.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ramlal mukharjee lane",
+                "addressLocality": "Howrah",
+                "addressRegion": "West Bengal",
+                "postalCode": "711106",
+                "addressCountry": "IN"
+              },
+              "telephone": "+91-9142892678",
+              "openingHours": "Mo-Fr 09:00-18:00",
+              "description": "India-based freelance developer offering high-quality web development, API development"
+            }),
+          }}
+        />
+        {/* Structured Data: Service */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Web Development",
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "TheFStack",
+                "url": "https://www.thefstack.com"
+              },
+              "areaServed": {
+                "@type": "Place",
+                "name": "India"
+              },
+              "description": "Affordable web development services specializing in Next.js, React, Node.js & AI integration."
             }),
           }}
         />

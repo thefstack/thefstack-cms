@@ -13,12 +13,17 @@
 
 .blogDetail {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 
 .blogDetail p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+  font-size: 1rem;
+
 }
 
 .blogDetail {
@@ -48,13 +53,49 @@
   font-size: 1.75em;
   margin-top: 25px;
   margin-bottom: 10px;
+  font-weight: 700;
   color: #333;
+}
+.blogDetail h4 {
+  font-size: 1.2em;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #333;
+}
+/* Ensure the code blocks stay within the container and scroll horizontally if needed */
+.blogDetail pre {
+  max-width: 100%;
+  overflow-x: auto;  /* Allows horizontal scrolling */
+  white-space: pre-wrap;  /* Ensures text wrapping if necessary */
+  word-wrap: break-word;  /* Breaks long words to avoid overflow */
+  background-color: #2f2f2f;
+  color: #e6e6e6e6;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem; /* Adjust font size for better readability */
+  font-family: monospace; /* Ensures a monospace font for code */
+}
+.blogDetail div img{
+  width: 300px;
+}
+
+.blogDetail code {
+  word-break: break-word; /* Ensures code does not overflow */
+  display: inline-block;
+  background-color: #2f2f2f;
+  color: #e6e6e6e6;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: monospace;
 }
 
 .blogDetail ul,
 .blogDetail ol {
-  margin-left: 20px;
+  margin-left: 50px;
   margin-bottom: 20px;
+  list-style: disc;
 }
 
 .blogDetail li {
@@ -78,19 +119,6 @@
   color: #555;
 }
 
-.blogDetail code {
-  background-color: #f4f4f4;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.blogDetail pre {
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 4px;
-  overflow-x: auto;
-}
 
 .toc {
   display: none;

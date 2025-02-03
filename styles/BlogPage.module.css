@@ -23,12 +23,12 @@
   justify-content: start;
 }
 
-.thumbnails {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-
+.thumbnail {
+  height: 150px;
+  width: 300px;
+  object-fit: cover;
 }
+  
 
 .blogItem {
   border: 1px solid #ccc;
@@ -36,6 +36,7 @@
   margin-bottom: 10px;
   border-radius: 5px;
   max-width: 250px;
+  height: 400px;
   display: flex;
   flex-direction: column;
 }
@@ -62,5 +63,36 @@
   text-decoration: none;
 }
 .readMore:hover {
+  text-decoration: underline;
+}
+
+.toc {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.toc h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.toc ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.toc li {
+  margin-bottom: 5px;
+}
+
+.toc a {
+  text-decoration: none;
+  color: #0070f3;
+}
+
+.toc a:hover {
   text-decoration: underline;
 }
