@@ -1,11 +1,12 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import BlogHeader from "@/components/BlogHeader";
 
 
 export default function BlogLayout({ children }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
+
+  
 
   const handleCategorySelect = (category, subcategory) => {
     const query = {};
