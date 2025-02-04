@@ -5,7 +5,7 @@ import Services from "@/components/Services"
 import Clients from "@/components/Clients"
 import styles from "@/styles/Home.module.css"
 
-async function fetchData() {
+export async function getStaticProps() {
   const [portfolioRes, servicesRes, clientsRes] = await Promise.all([
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/portfolio`),
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services`),
@@ -19,15 +19,15 @@ async function fetchData() {
   ]);
 
   return {
-    portfolio,
-    services,
-    clients
+    props: {
+      portfolio,
+      services,
+      clients
+    }
   };
 }
 
-export default async function Home() {
-  const { portfolio, services, clients } = await fetchData();
-
+export default function Home({ portfolio, services, clients }) {
   return (
     <div className={styles.container}>
       <Hero />
@@ -38,4 +38,3 @@ export default async function Home() {
     </div>
   )
 }
-

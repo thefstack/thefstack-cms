@@ -9,7 +9,7 @@ export default function Hero() {
         <p>I create beautiful and functional websites for businesses and individuals.</p>
       </div>
       <div className={styles.imageWrapper}>
-        <Image src="/HeroImage.avif" alt="Hero Image" width={500} height={300} layout="responsive" priority />
+        <Image src="/HeroImage.avif" alt="Hero Image" width={500} height={300} priority />
       </div>
     </section>
   )

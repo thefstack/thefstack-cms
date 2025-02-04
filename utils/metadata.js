@@ -1,6 +1,3 @@
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import { visit } from "unist-util-visit";
 
 export async function generateMetadata({ id, title, description, keywords, thumbnail, url }) {
 

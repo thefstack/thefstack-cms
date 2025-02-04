@@ -1,38 +1,15 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import { FaList } from "react-icons/fa";
 import styles from "@/styles/BlogDetail.module.css";
 import Loading from "@/components/Loading";
 import rehypeRaw from "rehype-raw";
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import { visit } from "unist-util-visit";
 import Image from "next/image";
 
-export default function BlogDetailClient({ blog }) {
-  const [toc, setToc] = useState([]);
-  const [showToc, setShowToc] = useState(false);
-  const tocRef = useRef(null);
-
-  useEffect(() => {
-    generateToc(blog.content);
-  }, [blog.content]);
-
-  const generateToc = async (content) => {
-    const toc = [];
-  
-    const tree = await remark().use(remarkGfm).parse(content);
-    visit(tree, "heading", (node) => {
-      const level = node.depth; // Get heading level (h1, h2, h3, etc.)
-      const text = node.children.map((child) => child.value).join(""); // Extract text
-      const id = text.toLowerCase().replace(/\s+/g, "-"); // Generate ID
-  
-      toc.push({ level, text, id });
-    });
-  
-    setToc(toc);
-  };
+export default function BlogDetailClient({ blog, toc }) {
+  const [showToc, setShowToc] = React.useState(false);
+  const tocRef = React.useRef(null);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -53,7 +30,7 @@ export default function BlogDetailClient({ blog }) {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (showToc) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {

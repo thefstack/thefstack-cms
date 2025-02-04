@@ -5,22 +5,27 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 
-export async function generateMetadata({ params }) {
-  const { id } = params;
+async function fetchBlog(id) {
   const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://www.thefstack.com";
   const response = await fetch(`${baseUrl}/api/blogs/${id}`);
-  const blog = await response.json();
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return await response.json();
+}
+
+export async function generateMetadata({ params }) {
+  const { id } = params;
+  const blog = await fetchBlog(id);
 
   const toc = [];
-    
-      const tree = await remark().use(remarkGfm).parse(blog.content);
-      visit(tree, "heading", (node) => {
-        const level = node.depth; // Get heading level (h1, h2, h3, etc.)
-        const text = node.children.map((child) => child.value).join(""); // Extract text
-        const id = text.toLowerCase().replace(/\s+/g, "-"); // Generate ID
-    
-        toc.push({ level, text, id });
-      });
+  const tree = await remark().use(remarkGfm).parse(blog.content);
+  visit(tree, "heading", (node) => {
+    const level = node.depth;
+    const text = node.children.map((child) => child.value).join("");
+    const id = text.toLowerCase().replace(/\s+/g, "-");
+    toc.push({ level, text, id });
+  });
 
   const metadata = await generatePageMetadata({
     id,
@@ -36,9 +41,16 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogDetailPage({ params }) {
   const { id } = params;
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://www.thefstack.com";
-  const response = await fetch(`${baseUrl}/api/blogs/${id}`);
-  const blog = await response.json();
+  const blog = await fetchBlog(id);
+
+  const toc = [];
+  const tree = await remark().use(remarkGfm).parse(blog.content);
+  visit(tree, "heading", (node) => {
+    const level = node.depth;
+    const text = node.children.map((child) => child.value).join("");
+    const id = text.toLowerCase().replace(/\s+/g, "-");
+    toc.push({ level, text, id });
+  });
 
   const metadata = await generatePageMetadata({
     id,
@@ -65,7 +77,7 @@ export default async function BlogDetailPage({ params }) {
         <meta name="twitter:description" content={metadata.twitter.description} />
         <meta name="twitter:image" content={metadata.twitter.image} />
       </Head>
-      <BlogDetailClient blog={blog} />
+      <BlogDetailClient blog={blog} toc={toc} />
     </>
   );
 }

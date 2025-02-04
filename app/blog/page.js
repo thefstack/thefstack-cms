@@ -1,66 +1,25 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkToc from "remark-toc";
 import styles from "@/styles/BlogPage.module.css";
 
-export default function BlogPage() {
-  const [blogs, setBlogs] = useState([]);
-  const [sortedBlogs, setSortedBlogs] = useState([]);
-  const router = useRouter();
-  const searchParams = useSearchParams();
+async function fetchBlogs() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs`, { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json();
+  return Array.isArray(data) ? data : [];
+}
 
-  useEffect(() => {
-    async function fetchBlogs() {
-      try {
-        const response = await fetch("/api/blogs");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setBlogs(Array.isArray(data) ? data : []);
-        setSortedBlogs(Array.isArray(data) ? data : []);
-      } catch (error) {
-        console.error("Failed to fetch blogs:", error);
-      }
-    }
-    fetchBlogs();
-  }, []);
-
-  useEffect(() => {
-    const category = searchParams.get("category");
-    const subcategory = searchParams.get("subcategory");
-    sortBlogs(category, subcategory);
-  }, [searchParams]);
-
-  const sortBlogs = (category, subcategory) => {
-    let sorted = [...blogs];
-    if (category) {
-      sorted = sorted.sort((a, b) => {
-        if (a.category === category && b.category !== category) return -1;
-        if (a.category !== category && b.category === category) return 1;
-        return 0;
-      });
-    }
-    if (subcategory) {
-      sorted = sorted.sort((a, b) => {
-        if (a.subcategory === subcategory && b.subcategory !== subcategory)
-          return -1;
-        if (a.subcategory !== subcategory && b.subcategory === subcategory)
-          return 1;
-        return 0;
-      });
-    }
-    setSortedBlogs(sorted);
-  };
+export default async function BlogPage() {
+  const blogs = await fetchBlogs();
 
   return (
-    <div style={{ padding: "1rem 2rem" }} >
+    <div style={{ padding: "1rem 2rem" }}>
       <ul className={styles.blogList}>
-        {Array.isArray(sortedBlogs) &&
-          sortedBlogs.map((blog) => {
+        {Array.isArray(blogs) &&
+          blogs.map((blog) => {
             const contentLength = blog.title.length > 20 ? 120 : 100;
             return (
               <li key={blog.id} className={styles.blogItem}>
