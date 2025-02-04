@@ -22,7 +22,7 @@ export default async function BlogPage() {
           blogs.map((blog) => {
             const contentLength = blog.title.length > 20 ? 120 : 100;
             return (
-              <li key={blog.id} className={styles.blogItem}>
+              <li key={blog._id} className={styles.blogItem}>
                 {blog.thumbnail && (
                   <img
                     src={blog.thumbnail}

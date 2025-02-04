@@ -6,10 +6,14 @@ import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
 
 async function fetchBlog(id) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://www.thefstack.com";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
   const response = await fetch(`${baseUrl}/api/blogs/${id}`);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const contentType = response.headers.get("content-type");
+  if (!contentType || !contentType.includes("application/json")) {
+    throw new Error("Received non-JSON response");
   }
   return await response.json();
 }
