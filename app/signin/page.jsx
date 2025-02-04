@@ -1,38 +1,23 @@
 "use client";
 import SignInForm from "@/components/SignInForm"
 import styles from "@/styles/SignIn.module.css"
-import { useSession } from "next-auth/react"
-import Loading from "@/components/Loading"
-import { useEffect, useState } from "react";
-import { redirect, useRouter } from "next/navigation"
+import { getSession } from "next-auth/react"
+import { redirect } from "next/navigation"
 
-export default function SignIn() {
-
-  const { data: session, status } = useSession() // Use useSession hook to get session
-  const [isLoading, setIsLoading] = useState(true)
-  const router=useRouter()
-
-  useEffect(() => {
-    if (status !== "loading") {
-      setIsLoading(false) // Once session is determined, stop loading
-    }
-  }, [status])
-
-  // Show loading spinner while checking session
-  if (isLoading) {
-    return <Loading size="medium" />
-  }
+// Server-side session check
+export default async function SignIn() {
+  const session = await getSession() // Fetch session on the server side
 
   if (session) {
-    // Redirect if no session found
-   router.push("/admin")
+    // Redirect if session found
+    redirect("/admin")
   }
 
-  if(!session){
-    return <div className={styles.container}>
-    <h1>Developer Sign-In</h1>
-    <SignInForm />
-  </div>
-  }
+  return (
+    <div className={styles.container}>
+      <h1>Developer Sign-In</h1>
+      <SignInForm />
+    </div>
+  )
 }
 
