@@ -4,7 +4,8 @@ import remarkToc from "remark-toc";
 import styles from "@/styles/BlogPage.module.css";
 
 async function fetchBlogs() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs`);
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
+  const response = await fetch(`${baseUrl}/api/blogs`);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
