@@ -6,10 +6,11 @@ import Clients from "@/components/Clients"
 import styles from "@/styles/Home.module.css"
 
 async function fetchData() {
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
   const [portfolioRes, servicesRes, clientsRes] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/portfolio`),
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services`),
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/reviews`)
+    fetch(`${baseUrl}/api/portfolio`),
+    fetch(`${baseUrl}/api/services`),
+    fetch(`${baseUrl}/api/reviews`)
   ]);
 
   const [portfolio, services, clients] = await Promise.all([
