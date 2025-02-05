@@ -10,7 +10,7 @@ export const metadata = {
   description:
     "Hire India's #1 affordable full-stack developer specializing in Next.js, React, Node.js & AI integration. 60% cost-effective web solutions. View portfolio, read the blog, and get a free consultation today!",
   keywords:
-    "freelancer, freelance web developer India, freelance India, low cost developer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack development, affordable freelancer, TheFStack, hire freelancer, India freelancer, API development, blog, AI integration, full-stack developer India, thefstack, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack thefstack seo, thefstack blog, thefstack portfolio, thefstack services, thefstack about, thefstack testimonials, thefstack projects, thefstack reviews",
+    "thefstack, freelancer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack development, affordable freelancer, TheFStack, API developer, thefstack blog, full-stack developer India, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack portfolio, thefstack services, about, testimonials, projects",
   author: "Raj",
   metadataBase: new URL("https://www.thefstack.com"),
   alternates: {
