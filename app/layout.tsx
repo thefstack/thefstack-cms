@@ -7,11 +7,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "TheFStack | Top Freelancer in India | Low Cost Web Development & SEO Services",
+  title: "TheFStack | Freelancer from India | Low Cost Web Development & SEO Services",
   description:
     "Hire India's #1 affordable full-stack developer specializing in Next.js, React, Node.js & AI integration. 60% cost-effective web solutions. View portfolio, read the blog, and get a free consultation today!",
   keywords:
-    "thefstack, freelancer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack development, affordable freelancer, TheFStack, API developer, thefstack blog, full-stack developer India, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack portfolio, thefstack services, about, testimonials, projects",
+    "thefstack, freelancer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack developer, affordable freelancer, TheFStack, API developer, thefstack blog, full-stack developer India, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack portfolio, thefstack services, about, testimonials, projects, blog, contact",
   author: "Raj",
   metadataBase: new URL("https://www.thefstack.com"),
   alternates: {
@@ -55,6 +55,18 @@ export const metadata = {
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
+    },
+  },
+  additionalPages: {
+    blog: {
+      title: "Blog - TheFStack",
+      description: "Read the latest articles and insights on web development, SEO, and more from TheFStack.",
+      url: "https://www.thefstack.com/blog",
+    },
+    contact: {
+      title: "Contact - TheFStack",
+      description: "Get in touch with TheFStack for inquiries, consultations, and support.",
+      url: "https://www.thefstack.com/contact",
     },
   },
 };
