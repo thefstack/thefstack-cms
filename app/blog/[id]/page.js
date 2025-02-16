@@ -18,6 +18,7 @@ async function fetchBlog(id) {
   return await response.json();
 }
 
+let metadata;
 export async function generateMetadata({ params }) {
   const { id } = params;
   const blog = await fetchBlog(id);
@@ -31,11 +32,11 @@ export async function generateMetadata({ params }) {
     toc.push({ level, text, id });
   });
 
-  const metadata = await generatePageMetadata({
+  metadata = await generatePageMetadata({
     id,
     title: blog.title,
     description: blog.key,
-    keywords: toc,
+    keywords: blog.key,
     thumbnail: blog.thumbnail,
     url: `https://www.thefstack.com/blog/${id}`,
   });
@@ -54,15 +55,6 @@ export default async function BlogDetailPage({ params }) {
     const text = node.children.map((child) => child.value).join("");
     const id = text.toLowerCase().replace(/\s+/g, "-");
     toc.push({ level, text, id });
-  });
-
-  const metadata = await generatePageMetadata({
-    id,
-    title: blog.title,
-    description: blog.key,
-    content: blog.content,
-    thumbnail: blog.thumbnail,
-    url: `https://www.thefstack.com/blog/${id}`,
   });
 
   return (
