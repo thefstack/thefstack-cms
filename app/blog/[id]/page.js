@@ -4,24 +4,46 @@ import Head from "next/head";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import { visit } from "unist-util-visit";
+import Link from "next/link";
 
 async function fetchBlog(id) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
-  const response = await fetch(`${baseUrl}/api/blogs/${id}`);
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
+    const response = await fetch(`${baseUrl}/api/blogs/${id}`);
+
+    if (!response.ok) {
+      console.error(`Blog not found: ${id}`);
+      return null; // Return null instead of throwing an error
+    }
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      console.error("Invalid response format.");
+      return null;
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    return null;
   }
-  const contentType = response.headers.get("content-type");
-  if (!contentType || !contentType.includes("application/json")) {
-    throw new Error("Received non-JSON response");
-  }
-  return await response.json();
 }
 
-let metadata;
+
 export async function generateMetadata({ params }) {
   const { id } = params;
   const blog = await fetchBlog(id);
+
+  if (!blog) {
+    console.log("hello")
+    return {
+      title: "Blog Not Found",
+      description: "The requested blog could not be found.",
+      keywords: "404, blog not found, error",
+      thumbnail: "/default-thumbnail.jpg",
+      url: `https://www.thefstack.com/blog/${id}`,
+    };
+  }
 
   const toc = [];
   const tree = await remark().use(remarkGfm).parse(blog.content);
@@ -32,22 +54,31 @@ export async function generateMetadata({ params }) {
     toc.push({ level, text, id });
   });
 
-  metadata = await generatePageMetadata({
+  return await generatePageMetadata({
     id,
     title: blog.title,
-    description: blog.key,
+    description: `${blog.content.slice(0, 300)}...`,
     keywords: blog.key,
     thumbnail: blog.thumbnail,
     url: `https://www.thefstack.com/blog/${id}`,
   });
-
-  return metadata;
 }
+
 
 export default async function BlogDetailPage({ params }) {
   const { id } = params;
   const blog = await fetchBlog(id);
-
+  if (!blog) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px" }}>
+        <h1>404 - Blog Not Found</h1>
+        <p>The blog you are looking for does not exist.</p>
+        <Link style={{ color: "blue", textDecoration: "underline" }} href="/blog">
+          Go back to Blogs
+        </Link>
+      </div>
+    );
+  }
   const toc = [];
   const tree = await remark().use(remarkGfm).parse(blog.content);
   visit(tree, "heading", (node) => {
@@ -59,20 +90,6 @@ export default async function BlogDetailPage({ params }) {
 
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:type" content={metadata.openGraph.type} />
-        <meta property="og:image" content={metadata.openGraph.images[0]?.url} />
-        <meta name="twitter:card" content={metadata.twitter.card} />
-        <meta name="twitter:title" content={metadata.twitter.title} />
-        <meta name="twitter:description" content={metadata.twitter.description} />
-        <meta name="twitter:image" content={metadata.twitter.image} />
-      </Head>
       <BlogDetailClient blog={blog} toc={toc} />
     </>
   );
