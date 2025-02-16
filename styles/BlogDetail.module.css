@@ -75,6 +75,7 @@
   border-radius: 8px;
   font-size: 0.9rem; /* Adjust font size for better readability */
   font-family: monospace; /* Ensures a monospace font for code */
+  max-width: 700px;
 }
 .blogDetail div img{
   width: 300px;
