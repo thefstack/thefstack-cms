@@ -4,11 +4,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   const { id } = params;
+  console.log("id in api route", id)
   try {
     // Establish a connection to the database
     await connectToDatabase();
     // Fetch the blog from the database
-    const blog = await Blog.findById(id);
+    const blog = await Blog.findOne({slug:id});
+    console.log(blog)
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }

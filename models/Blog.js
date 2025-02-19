@@ -13,6 +13,12 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  slug: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
   subcategory: {
     type: String,
     required: true,
@@ -25,10 +31,16 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+},
+{timestamps:true}
+);
+
+// ✅ Auto-generate slug if missing
+BlogSchema.pre("save", function (next) {
+  if (!this.slug) {
+    this.slug = slugify(this.title, { lower: true, strict: true });
+  }
+  next();
 });
 
 const Blog = mongoose.models.Blog || mongoose.model("Blog", BlogSchema);

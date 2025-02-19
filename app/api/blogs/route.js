@@ -9,6 +9,7 @@ export async function GET(req) {
     await connectToDatabase();
     // Fetch blogs from the database
     const blogs = await Blog.find({});
+    // console.log("api:",blogs)
     return NextResponse.json(blogs, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: "Failed to fetch blogs" }, { status: 500 });

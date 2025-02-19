@@ -7,11 +7,13 @@ import { generateMetadata as generatePageMetadata } from "@/utils/metadata";
 
 async function fetchBlogs() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
-  const response = await fetch(`${baseUrl}/api/blogs`);
+  const response = await fetch(`${baseUrl}/api/blogs`,{ cache: "no-store" });
+  
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
   const data = await response.json();
+  // console.log(data)
   return Array.isArray(data) ? data : [];
 }
 
@@ -43,6 +45,7 @@ export default async function BlogPage() {
       <ul className={styles.blogList}>
         {Array.isArray(blogs) &&
           blogs.map((blog) => {
+            
             const contentLength = blog.title.length > 20 ? 120 : 100;
             return (
               <li key={blog._id} className={styles.blogItem}>
@@ -60,7 +63,7 @@ export default async function BlogPage() {
                   0,
                   contentLength
                 )}...`}</ReactMarkdown>
-                <Link href={`/blog/${blog._id}`} className={styles.readMore}>
+                <Link href={`/blog/${blog.slug}`} className={styles.readMore}>
                   Read More
                 </Link>
               </li>

@@ -8,6 +8,7 @@ import Link from "next/link";
 
 async function fetchBlog(id) {
   try {
+    
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
     const response = await fetch(`${baseUrl}/api/blogs/${id}`);
 
@@ -35,13 +36,12 @@ export async function generateMetadata({ params }) {
   const blog = await fetchBlog(id);
 
   if (!blog) {
-    console.log("hello")
     return {
       title: "Blog Not Found",
       description: "The requested blog could not be found.",
       keywords: "404, blog not found, error",
       thumbnail: "/default-thumbnail.jpg",
-      url: `https://www.thefstack.com/blog/${id}`,
+      url: `https://www.thefstack.com/blogs/${id}`,
     };
   }
 
