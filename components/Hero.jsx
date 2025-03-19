@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <h1>Welcome to My Freelance Portfolio</h1>
+        <h1>Welcome to My Portfolio</h1>
         <p>I create beautiful and functional websites for businesses and individuals.</p>
       </div>
       <div className={styles.imageWrapper}>
