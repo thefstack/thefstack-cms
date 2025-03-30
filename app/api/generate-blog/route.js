@@ -51,6 +51,11 @@ export async function POST(req) {
       })
 
       const content = completion.choices[0].message.content
+      // Regular expression to match content within ```markdown blocks
+const markdownMatch = content.match(/```markdown\s([\s\S]*?)```/);
+
+// Extract and store the Markdown content if it exists
+const markdownContent = markdownMatch ? markdownMatch[1].trim() : "";
 
       // Generate a title using OpenAI
       const titleCompletion = await openai.chat.completions.create({
@@ -80,7 +85,7 @@ export async function POST(req) {
         key: `${schedule.topic}, ${schedule.subtopic}`,
         category: schedule.category,
         subcategory: schedule.subcategory,
-        content,
+        content:markdownContent,
         slug,
         thumbnail: "https://source.unsplash.com/random/800x600/?blog",
       })
