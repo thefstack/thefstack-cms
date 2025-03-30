@@ -14,7 +14,8 @@ export default function Portfolio({ projects }) {
       <h2>My Portfolio</h2>
       <div className={styles.grid}>
         {projects.map((project) => (
-          <div key={project._id} className={styles.project}>
+          <div className={styles.project}>
+          <div key={project._id} >
             <Image
               src={project.image || "/placeholder.svg"}
               alt={project.title}
@@ -24,7 +25,9 @@ export default function Portfolio({ projects }) {
             />
             <h3>{project.title}</h3>
             <Markdown>{project.description}</Markdown>
-            <div className={styles.links}>
+            
+          </div>
+          <div className={styles.links}>
               <Link href={project.demoLink.startsWith('http') ? project.demoLink : `https://${project.demoLink}`} legacyBehavior>
                 <a target="_blank" rel="noopener noreferrer">
                   <FiExternalLink /> Demo

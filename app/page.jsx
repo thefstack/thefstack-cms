@@ -8,9 +8,9 @@ import styles from "@/styles/Home.module.css"
 async function fetchData() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
   const [portfolioRes, servicesRes, clientsRes] = await Promise.all([
-    fetch(`${baseUrl}/api/portfolio`),
-    fetch(`${baseUrl}/api/services`),
-    fetch(`${baseUrl}/api/reviews`)
+    fetch(`${baseUrl}/api/portfolio`,{ cache: "no-store" }),
+    fetch(`${baseUrl}/api/services`,{ cache: "no-store" }),
+    fetch(`${baseUrl}/api/reviews`,{ cache: "no-store" })
   ]);
 
   const [portfolio, services, clients] = await Promise.all([
