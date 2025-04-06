@@ -3,6 +3,7 @@ import { Providers } from "./providers";
 import App from "./App";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -175,6 +176,7 @@ export default function RootLayout({
           <App>{children}</App>
           <SpeedInsights />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

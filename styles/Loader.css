@@ -8,9 +8,9 @@
 	--bg: #e3e4e8;
 	--fg: #17181c;
 	--dur: 8s;
-	font-size: calc(20px + (30 - 20) * (100vw - 320px) / (1280 - 320));
+	
 }
-body {
+.body-m {
 	background: var(--bg);
 	color: var(--fg);
 	font: bold 1em/1.5 "Comfortaa", sans-serif;
@@ -18,15 +18,17 @@ body {
 	place-items: center;
 	align-content: center;
 	height: 100vh;
+	width: 100%;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
+	font-size: calc(14px + (30 - 20) * (100vw - 320px) / (1280 - 320));
 }
 .hexagon {
 	margin-bottom: 1.5em;
 	overflow: hidden;
 	position: relative;
-	width: 15em;
-	height: 15em;
+	width: 12em;
+	height: 12em;
 }
 .hexagon__group, .hexagon__sector, .hexagon__sector:before, .hexagon__sector:after {
 	position: absolute;

@@ -6,11 +6,7 @@ import "./globals.css"
 const App = ({children}) => {
 
   return (
-    <section className="flex flex-col h-screen justify-between ">
-      <div style={{position:'fixed', width:"100%", zIndex:999}}><Header /></div>
-      <main className="flex-1 pt-[var(--main-header-padding-top)]">{children}</main>
-      <Footer />
-    </section>
+    <>{children}</>
   )
 }
 
