@@ -9,7 +9,7 @@ async function fetchData() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
 
   const [portfolioRes] = await Promise.all([
-    fetch(`${baseUrl}/api/portfolio`,{ cache: "no-store" }),
+    fetch(`${baseUrl}/api/portfolio`),
   ]);
 
   const [portfolio] = await Promise.all([
