@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import Link from "next/link";
 import styles from "@/styles/Experience.module.css";
-import Markdown from "react-markdown";
 
 export default function Experience() {
   return (
@@ -19,7 +18,7 @@ export default function Experience() {
               style={{ objectFit: "cover" }}
             />
             <p className="absolute right-0 top-0">sep-2024 - present</p>
-            <h3>Ivy Knowledge Service Pvt Ltd </h3>
+            <h3>Full Stack Intern <span className="text-base">- Ivy Knowledge Service Pvt Ltd</span> </h3>
             <ul className={styles.experienceList}>
               <li>
                 Integrated <strong>AI-powered chatbot</strong> features where
