@@ -4,6 +4,7 @@ import Footer from "@/components/Footer"
 import "./globals.css"
 
 const App = ({children}) => {
+
   return (
     <section className="flex flex-col h-screen justify-between ">
       <div style={{position:'fixed', width:"100%", zIndex:999}}><Header /></div>

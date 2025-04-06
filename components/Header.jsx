@@ -9,7 +9,7 @@ import styles from "@/styles/Header.module.css";
 import Image from "next/image";
 
 export default function Header() {
-  const { data: session } = useSession(); // Get the session data
+  const { data: session, status } = useSession(); // Get the session data
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSignOut = () => {
@@ -37,23 +37,34 @@ export default function Header() {
           {session && <Link href="/admin" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
             <FiHome /> Admin
           </Link>}
+          
           {/* Conditionally render the Sign In/Log Out link */}
-          {session ? (
-            <button
-              className={styles.navLink}
-              onClick={handleSignOut} // Call the handleSignOut function when clicked
-            >
-              <FiUser /> Log Out
-            </button>
-          ) : (
-            <Link
-              href="/signin"
-              className={styles.navLink}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <FiUser /> Developer Sign-In
-            </Link>
-          )}
+          {status === "loading" ? null : (
+  <>
+    {session && (
+      <Link href="/admin" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+        <FiHome /> Admin
+      </Link>
+    )}
+
+    {session ? (
+      <button
+        className={styles.navLink}
+        onClick={handleSignOut}
+      >
+        <FiUser /> Log Out
+      </button>
+    ) : (
+      <Link
+        href="/signin"
+        className={styles.navLink}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <FiUser /> Developer Sign-In
+      </Link>
+    )}
+  </>
+)}
         </nav>
       </div>
     </header>

@@ -14,8 +14,8 @@ export default function Portfolio({ projects }) {
       <h2>My Portfolio</h2>
       <div className={styles.grid}>
         {projects.map((project) => (
-          <div className={styles.project}>
-          <div key={project._id} >
+          <div key={project._id} className={styles.project}>
+          <div>
             <Image
               src={project.image || "/placeholder.svg"}
               alt={project.title}

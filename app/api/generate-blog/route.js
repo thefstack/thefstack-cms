@@ -48,7 +48,6 @@ export async function POST(req) {
           { role: "user", content: prompt },
         ],
         temperature: 0.7,
-        max_tokens: 4000,
       })
 
       const content = completion.choices[0].message.content;
@@ -86,45 +85,6 @@ console.log(markdownContent);
         .replace(/[^\w\s]/gi, "")
         .replace(/\s+/g, "-")
 
-        const imageResponse = await openai.responses.create({
-          model: "gpt-4o-mini",
-          input: [
-            {
-              role: "system",
-              content: `You are an intelligent assistant that finds publicly available image links on google images related to a blog topic. 
-              Search for relevant images and return only the direct URL of a valid, publicly accessible image in JSON format:
-              {"imageLink": "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg"}`,
-            },
-            {
-              role: "user",
-              content: `Find a public image link for the blog 
-              Title: ${title} 
-              Content: ${markdownContent}`,
-            },
-          ],
-          temperature: 0.7,
-        });
-
-        console.log(imageResponse)
-        let jsonText = imageResponse.output_text.trim(); // Trim any whitespace
-
-// Extract JSON inside ```json``` if present
-const jsonMatch = jsonText.match(/```json\s*([\s\S]*?)\s*```/);
-
-if (jsonMatch) {
-  jsonText = jsonMatch[1].trim(); // Extract JSON content only
-}
-
-// Safely parse JSON
-let imageData;
-try {
-  imageData = JSON.parse(jsonText);
-} catch (error) {
-  console.error("Error parsing JSON:", error);
-  imageData = null;
-}
-
-
       // Create a new blog post
       const blog = new Blog({
         title,
@@ -133,7 +93,7 @@ try {
         subcategory: schedule.subcategory,
         content:markdownContent,
         slug,
-        thumbnail: imageData.imageLink,
+        thumbnail: "",
       })
 
       // If the postTime is in the future, schedule it
@@ -176,7 +136,7 @@ try {
       try {
         const { scheduleId } = await req.json()
         if (scheduleId) {
-          await connectToDatabase()
+          // await connectToDatabase()
           const schedule = await BlogSchedule.findById(scheduleId)
           if (schedule) {
             schedule.status = "failed"
