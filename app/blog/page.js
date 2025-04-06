@@ -36,6 +36,7 @@ export default async function BlogPage() {
 
   return (
     <div style={{ padding: "1rem 2rem" }}>
+    <h1>Latest Blog Posts</h1>
       <ul className={styles.blogList}>
         {Array.isArray(blogs) &&
           blogs.map((blog) => {
