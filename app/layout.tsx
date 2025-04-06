@@ -2,48 +2,37 @@ import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import App from "./App";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "TheFStack | Freelancer from India | Low Cost Web Development & SEO Services",
+  title: "TheFStack | Full-Stack Web Developer & Developer from India",
   description:
-    "Hire India's #1 affordable full-stack developer specializing in Next.js, React, Node.js & AI integration. 60% cost-effective web solutions. View portfolio, read the blog, and get a free consultation today!",
+    "Explore TheFStack - a tech blog and portfolio by Raj, a passionate full-stack web developer specializing in Next.js, React, Node.js & AI integration. Currently interning at Ivy and building modern, responsive web apps.",
   keywords:
-    "thefstack, freelancer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack developer, affordable freelancer, TheFStack, API developer, thefstack blog, full-stack developer India, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack portfolio, thefstack services, about, testimonials, projects, blog, contact",
+    "thefstack, web developer India, Next.js developer, React developer, Node.js backend, full-stack web development, thefstack blog, Raj thefstack, thefstack portfolio, tech blog, internship projects, Ivy intern, AI integration, web apps India",
   author: "Raj",
   metadataBase: new URL("https://www.thefstack.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title:
-      "Full-Stack Developer India | React & Node.js Specialist - TheFStack",
+    title: "TheFStack | Raj - Full-Stack Developer & Intern from India",
     description:
-      "Discover premium web development, professional web development services with AI integration & modern animations, and blog insights at TheFStack. Our expert freelancer offers top-notch full-stack development, Next.js solutions, responsive design, and cost-effective services in India.",
+      "Raj is a full-stack web developer and intern at Ivy. TheFStack showcases projects, blog posts, and insights on modern web development with React, Node.js, and AI tools.",
     url: "https://www.thefstack.com",
-    siteName: "TheFStack - Full-Stack Web Development Services",
-    // images: [
-    //   {
-    //     url: "https://www.thefstack.com/og-thefstack-freelancer.jpg",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "TheFStack Freelance Services - Premium Quality at Indian Rates",
-    //   },
-    // ],
+    siteName: "TheFStack - Web Development Blog & Portfolio",
     type: "website",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "India's Top Affordable Freelancer | TheFStack Web Development, SEO & Blog",
+    title: "TheFStack | Raj - Full-Stack Developer & Web Intern",
     description:
-      "Hire an expert freelancer offering comprehensive web development, expert in Next.js, Node.js & AI integration, and cutting-edge blog insights. Affordable, high-quality, and professional services with TheFStack. 24/7 support & competitive pricing.",
+      "Discover projects, tutorials, and insights from Raj, a web developer and intern at Ivy, building full-stack applications with modern tech like React, Node.js, and Next.js.",
     creator: "@TheFStack",
-    // images: ["https://www.thefstack.com/twitter-thefstack-card.jpg"],
   },
   robots: {
     index: true,
@@ -58,18 +47,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  additionalPages: {
-    blog: {
-      title: "Blog - TheFStack",
-      description: "Read the latest articles and insights on web development, SEO, and more from TheFStack.",
-      url: "https://www.thefstack.com/blog",
-    },
-    contact: {
-      title: "Contact - TheFStack",
-      description: "Get in touch with TheFStack for inquiries, consultations, and support.",
-      url: "https://www.thefstack.com/contact",
-    },
-  },
 };
 
 export default function RootLayout({
@@ -80,93 +57,97 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
-        {/* Favicon Links */}
+        {/* Favicons */}
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon/favicon.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon/favicon.png" />
 
+        {/* Schema: Person */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Raj",
-              "jobTitle": "Professional Freelance Developer",
-              "url": "https://www.thefstack.com",
-              "sameAs": [
+              name: "Raj",
+              jobTitle: "Full-Stack Web Developer & Intern",
+              url: "https://www.thefstack.com",
+              sameAs: [
                 "https://linkedin.com/in/thefstack",
                 "https://github.com/thefstack",
-                // "https://twitter.com/TheFStack"
               ],
-              "address": {
+              address: {
                 "@type": "PostalAddress",
-                "addressCountry": "IN"
+                addressCountry: "IN",
               },
-              // "image": "https://www.thefstack.com/logo-thefstack-schema.jpg",
-              "description":
-                "India-based freelance developer offering high-quality web development, SEO, digital marketing, API development, and blog content creation at competitive rates through TheFStack."
+              description:
+                "Raj is a full-stack web developer currently interning at Ivy. Passionate about building responsive websites and modern web apps using React, Node.js, Next.js, and AI tools.",
             }),
           }}
         />
-        {/* Structured Data: Website */}
+
+        {/* Schema: WebSite */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "TheFStack",
-              "url": "https://www.thefstack.com",
-              "potentialAction": {
+              name: "TheFStack",
+              url: "https://www.thefstack.com",
+              potentialAction: {
                 "@type": "SearchAction",
-                "target": "https://www.thefstack.com/",
-              }
+                target: "https://www.thefstack.com/",
+              },
             }),
           }}
         />
-        {/* Structured Data: LocalBusiness */}
+
+        {/* Schema: LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "TheFStack",
-              "url": "https://www.thefstack.com",
-              "address": {
+              name: "TheFStack",
+              url: "https://www.thefstack.com",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "ramlal mukharjee lane",
-                "addressLocality": "Howrah",
-                "addressRegion": "West Bengal",
-                "postalCode": "711106",
-                "addressCountry": "IN"
+                streetAddress: "Ramlal Mukherjee Lane",
+                addressLocality: "Howrah",
+                addressRegion: "West Bengal",
+                postalCode: "711106",
+                addressCountry: "IN",
               },
-              "telephone": "+91-9142892678",
-              "openingHours": "Mo-Fr 09:00-18:00",
-              "description": "India-based freelance developer offering high-quality web development, API development"
+              telephone: "+91-9142892678",
+              openingHours: "Mo-Fr 09:00-18:00",
+              description:
+                "Raj is a full-stack developer offering modern web solutions and blogging about web development, AI integration, and career growth.",
             }),
           }}
         />
-        {/* Structured Data: Service */}
+
+        {/* Schema: Service */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Service",
-              "serviceType": "Web Development",
-              "provider": {
+              serviceType: "Web Development",
+              provider: {
                 "@type": "LocalBusiness",
-                "name": "TheFStack",
-                "url": "https://www.thefstack.com"
+                name: "TheFStack",
+                url: "https://www.thefstack.com",
               },
-              "areaServed": {
+              areaServed: {
                 "@type": "Place",
-                "name": "India"
+                name: "India",
               },
-              "description": "Affordable web development services specializing in Next.js, React, Node.js & AI integration."
+              description:
+                "Providing high-quality, modern web development using React, Node.js, Next.js, and AI integration.",
             }),
           }}
         />
