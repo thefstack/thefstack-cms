@@ -5,10 +5,10 @@ export async function GET() {
 
   // Static pages to include
   const staticPages = [
-    { loc: "https://www.thefstack.com/contact", priority: 0.7, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/contact", priority: 0.6, changeFreq:"monthly" },
     { loc: "https://www.thefstack.com/signin", priority: 0.5, changeFreq:"monthly" },
-    { loc: "https://www.thefstack.com/terms", priority: 0.5, changeFreq:"monthly" },
-    { loc: "https://www.thefstack.com/privacy-policy", priority: 0.5, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/terms", priority: 0.4, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/privacy-policy", priority: 0.4, changeFreq:"monthly" },
     { loc: "https://www.thefstack.com/blog", priority: 0.8, changeFreq:"weekly" },
   ];
 

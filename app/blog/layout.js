@@ -1,8 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import BlogHeader from "@/components/BlogHeader";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 
 
 export default function BlogLayout({ children }) {
