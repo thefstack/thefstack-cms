@@ -5,11 +5,11 @@ export async function GET() {
 
   // Static pages to include
   const staticPages = [
-    { loc: "https://www.thefstack.com/contact", priority: 0.7 },
-    { loc: "https://www.thefstack.com/signin", priority: 0.5 },
-    { loc: "https://www.thefstack.com/terms", priority: 0.5 },
-    { loc: "https://www.thefstack.com/privacy-policy", priority: 0.5 },
-    { loc: "https://www.thefstack.com/blog", priority: 0.8 },
+    { loc: "https://www.thefstack.com/contact", priority: 0.7, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/signin", priority: 0.5, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/terms", priority: 0.5, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/privacy-policy", priority: 0.5, changeFreq:"monthly" },
+    { loc: "https://www.thefstack.com/blog", priority: 0.8, changeFreq:"weekly" },
   ];
 
   const staticUrls = staticPages
@@ -18,7 +18,7 @@ export async function GET() {
       <url>
         <loc>${page.loc}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>monthly</changefreq>
+        <changefreq>${page.changeFreq}</changefreq>
         <priority>${page.priority}</priority>
       </url>
     `
@@ -37,7 +37,7 @@ export async function GET() {
           <loc>https://www.thefstack.com/blog/${post.slug}</loc>
           <lastmod>${lastModISO}</lastmod>
           <changefreq>monthly</changefreq>
-          <priority>0.7</priority>
+          <priority>0.8</priority>
         </url>
       `;
     })
