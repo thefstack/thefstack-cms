@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import BlogHeader from "@/components/BlogHeader";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 
 export default function BlogLayout({ children }) {
@@ -16,11 +18,13 @@ export default function BlogLayout({ children }) {
   };
 
   return (
+
     <div className="overflow-x-hidden">
     <div className=" fixed z-50">
       <BlogHeader onCategorySelect={handleCategorySelect} />
       </div>
       <div className="w-screen overflow-hidden pt-[var(--blog-header-padding-top)]">{children}</div>
     </div>
+
   );
 }

@@ -17,6 +17,15 @@ export default function Home() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
+    // Prevent scroll while loading
+    if (loading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [loading]);
+
+  useEffect(() => {
     const baseUrl =
       process.env.NEXT_PUBLIC_API_URL || "https://www.thefstack.com";
 
@@ -37,39 +46,48 @@ export default function Home() {
           setTimeout(() => {
             setLoading(false);
           }, 1000);
-        }, 2000);
+        }, 1000);
       };
   
       fetchData();
     }, []);
+
+    useEffect(() => {
+      if (!loading) {
+        const scrollToSectionId = sessionStorage.getItem("scrollToSection");
+        if (scrollToSectionId) {
+          const el = document.getElementById(scrollToSectionId);
+          if (el) {
+            setTimeout(() => {
+              el.scrollIntoView({ behavior: "smooth" });
+              sessionStorage.removeItem("scrollToSection");
+            }, 100); // slight delay
+          }
+        }
+      }
+    }, [loading]);
 
   return (
     <>
       {loading && (
         <div
           className={`fixed inset-0 w-screen h-screen z-[1000] bg-white flex justify-center items-center transition-all duration-1000 ease-in-out transform ${
-    fadeOut ? "opacity-60 -translate-y-full" : "opacity-100 translate-y-0"
+    fadeOut ? "-translate-y-full" : "translate-y-0"
   }`}
         >
           <Loader />
         </div>
       )}
 
-      <section className="flex flex-col h-screen justify-between">
-        <div className="fixed w-full z-50">
-          <Header />
-        </div>
-        <main className="flex-1 pt-[var(--main-header-padding-top)]">
-          <div className={styles.container}>
-            <Hero />
+
+          <div className={`flex flex-col gap-16 transition-all duration-800 ${styles.container}`}>
+          <div id="home" className="scroll-mt-20"><Hero /></div>
             <About />
-            <Experience />
-            <Portfolio projects={portfolio} />
-            <ContactForm />
+            <div id="experience" className="scroll-mt-20"><Experience /></div>
+            <div id="portfolio" className="scroll-mt-20"><Portfolio projects={portfolio} /></div>
+            <div id="contact" className="scroll-mt-20 py-24"><ContactForm /></div>
           </div>
-        </main>
-        <Footer />
-      </section>
+
     </>
   );
 }

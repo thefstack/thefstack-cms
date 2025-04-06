@@ -106,6 +106,7 @@ body {
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
@@ -116,6 +117,7 @@ body {
   --sb-track-color: #dcdcdc;
   --sb-thumb-color: #949191;
   --sb-size: 5px;
+
 }
 
 body::-webkit-scrollbar {

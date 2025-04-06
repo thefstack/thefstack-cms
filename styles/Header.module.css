@@ -40,6 +40,11 @@
   color: var(--primary-color);
 }
 
+.active {
+  color: #0070f3; /* Or any active color you want */
+  font-weight: bold;
+}
+
 .menuButton {
   display: none;
   background: none;
