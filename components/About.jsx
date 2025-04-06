@@ -11,14 +11,14 @@ export default function About() {
         </div>
         <div className={styles.text}>
           <p>
-            Hi, I'm Raj. I'm a passionate web developer with expertise in creating modern, responsive websites
-            using the latest technologies. With 2 years of experience, I've helped few clients bring their
-            digital visions to life.
+          Hey, I'm Raj — a web development enthusiast currently interning at Ivy. I enjoy building user-friendly
+            interfaces and interactive web applications that solve real problems.
           </p>
           <p>
-            My skills include HTML, CSS, JavaScript, NodeJs, ExpressJs, Restful Api, React, Next.js and OpenAi Integration. I'm always eager to learn new technologies and
-            stay up-to-date with the latest web development trends.
+          I've worked on several personal and collaborative projects using technologies like HTML, CSS, JavaScript,
+          Node.js, Express.js, MongoDB, React, and Next.js. Lately, I've also been exploring AI integration using OpenAI APIs.
           </p>
+          <p>I'm always curious, constantly learning, and excited about growing as a full-stack developer.</p>
         </div>
       </div>
     </section>
