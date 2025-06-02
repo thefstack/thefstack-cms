@@ -22,7 +22,7 @@ async function fetchData() {
   return {
     portfolio,
     services,
-    clients
+    clients 
   };
 }
 
