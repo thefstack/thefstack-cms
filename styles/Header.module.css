@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--background-color);
+  background-color: #DFD0B8;
   padding-top: 0.4rem;
   z-index: 999;
 
@@ -32,12 +32,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--text-color);
   border: none;
 }
 
 .navLink:hover {
-  color: var(--primary-color);
+  scale: 1.03;
 }
 
 .menuButton {

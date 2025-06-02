@@ -1,34 +1,75 @@
 .portfolio {
-  margin-bottom: 4rem;
+  margin: 4rem 1.4rem;
+  position: relative;
+
+  margin-bottom: 10rem;
+
 }
 
 .portfolio h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  position: sticky;
+  top:50px;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 20dvh;
+
+}
+
+.grid > div {
+  position: sticky;
+  top: 100px;
+
 }
 
 .project {
   background-color: var(--background-color);
   border-radius: var(--border-radius);
   padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    background: rgba(255, 255, 255, 0.302);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 25px 15px;
+  max-width: 800px;
+  height: 70dvh;
+  overflow: auto;
+}
+
+.projectCard{
+  flex: 40%;
   display: flex;
   flex-direction: column;
-    justify-content: space-between;
-    height: fit-content;
-    gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  
 }
-.project:hover {
-  background-color: var(--background-color-hover);
+
+.description{
+  flex: 60%;
 }
+
+
+
+.project>div img {
+  width: 300px;
+  height: 150px;
+  border-radius: var(--border-radius);
+}
+
 
 .project h3 {
   margin-top: 1rem;
@@ -55,7 +96,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--primary-color);
 }
 
 .links a:hover {
@@ -63,8 +103,16 @@
 }
 
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .project>div img {
+    display: none;
   }
+}
+
+
+@media(max-height:800px){
+  .project>div img {
+    display: none;
+  }
+
 }
 

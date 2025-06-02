@@ -14,7 +14,7 @@ export default function Header() {
 
   const handleSignOut = () => {
     signOut({
-      callbackUrl: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3001", // Default to localhost:3001
+      callbackUrl: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000", // Default to localhost:3001
     });
   };
 
@@ -31,9 +31,9 @@ export default function Header() {
           <Link href="/" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
             <FiHome /> Home
           </Link>
-          <Link href="/blog" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
+          {/* <Link href="/blog" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
             <FiHome /> Blogs
-          </Link>
+          </Link> */}
           {session && <Link href="/admin" className={styles.navLink} onClick={() => setIsMenuOpen(false)}>
             <FiHome /> Admin
           </Link>}

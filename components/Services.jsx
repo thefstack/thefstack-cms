@@ -1,6 +1,8 @@
+"use client";
 import * as FiIcons from "react-icons/fi"; // Import all icons
 import styles from "@/styles/Services.module.css";
 import Markdown from "react-markdown";
+import { motion } from "framer-motion";
 
 export default function Services({ services }) {
   if (services.length === 0) {
@@ -15,15 +17,24 @@ export default function Services({ services }) {
           const Icon = FiIcons[service.logo]; // Get the icon component dynamically
 
           return (
-            <div key={service._id} className={styles.service}>
-              {Icon ? (
+            <motion.div key={service._id} className={styles.service}
+            initial={{ scale: 0.6 }} // ✅ Start small & invisible
+            whileInView={{ scale: 1 }} // ✅ Animate to normal on scroll
+            transition={{ duration: 0.5, ease: "easeOut" }} // ✅ Smooth transition
+            viewport={{ once: false, amount: 0.4 }} 
+            >
+              <div>
+                {Icon ? (
                 <Icon className={styles.icon} />
               ) : (
                 <p>Icon Not Found</p>
               )}
               <h3>{service.title}</h3>
-              <Markdown>{service.description}</Markdown>
-            </div>
+              </div>
+              <div className={styles.description}>
+                <Markdown>{service.description}</Markdown>
+              </div>
+            </motion.div>
           );
         })}
       </div>
