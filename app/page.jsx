@@ -4,6 +4,7 @@ import Portfolio from "@/components/Portfolio"
 import Services from "@/components/Services"
 import Clients from "@/components/Clients"
 import Skills from "@/components/Skills"
+import ContactForm from "@/components/Contact"
 import styles from "@/styles/Home.module.css"
 
 async function fetchData() {
@@ -38,6 +39,7 @@ export default async function Home() {
       <Portfolio projects={portfolio} />
       <Services services={services} />
       <Clients clients={clients} />
+      <ContactForm/>
     </div>
   )
 }

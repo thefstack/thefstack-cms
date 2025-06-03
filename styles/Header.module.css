@@ -59,7 +59,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     flex-direction: column;
     padding: 1rem;
   }

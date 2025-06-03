@@ -47,7 +47,23 @@
   max-width: 800px;
   height: 70dvh;
   overflow: auto;
+
+  
 }
+
+
+
+
+.project::-webkit-scrollbar-track {
+  background: #393E46;
+}
+
+.project::-webkit-scrollbar-thumb {
+  background: #948979;
+}
+
+
+
 
 .projectCard{
   flex: 40%;
@@ -60,6 +76,7 @@
 
 .description{
   flex: 60%;
+  font-size: 0.7rem;
 }
 
 
