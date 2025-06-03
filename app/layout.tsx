@@ -2,47 +2,37 @@ import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import App from "./App";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "TheFStack | Freelancer from India | Low Cost Web Development & SEO Services",
+  title: "TheFStack | Full-Time Developer @ Ivy & Freelance Web Expert from India",
   description:
-    "Hire India's #1 affordable full-stack developer specializing in Next.js, React, Node.js & AI integration. 60% cost-effective web solutions. View portfolio, read the blog, and get a free consultation today!",
+    "Raj – full-time developer at Ivy and an independent freelancer at TheFStack – offers cost-effective full-stack development, SEO, and AI integration using Next.js, React, and Node.js. Based in India. View portfolio & blog.",
   keywords:
-    "thefstack, freelancer, web developer, React.js developer, Node.js expert, Next.js developer, full-stack developer, affordable freelancer, TheFStack, API developer, thefstack blog, full-stack developer India, thefstack raj, raj thefstack, thefstack freelancer, freelancer thefstack, thefstack portfolio, thefstack services, about, testimonials, projects, blog, contact",
+    "thefstack, freelance web developer, full-stack developer India, React developer, Next.js developer, Node.js expert, web development India, affordable web developer, developer portfolio, thefstack raj, Raj developer ivy, raj thefstack, SEO developer India, AI website developer",
   author: "Raj",
   metadataBase: new URL("https://www.thefstack.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title:
-      "Full-Stack Developer India | React & Node.js Specialist - TheFStack",
+    title: "Full-Time Developer @ Ivy | Freelance Web Expert India – TheFStack",
     description:
-      "Discover premium web development, professional web development services with AI integration & modern animations, and blog insights at TheFStack. Our expert freelancer offers top-notch full-stack development, Next.js solutions, responsive design, and cost-effective services in India.",
+      "Full-time developer at Ivy and an independent freelancer through TheFStack. Get premium full-stack development with SEO and AI features using React, Next.js, Node.js. View Raj’s portfolio & blog now.",
     url: "https://www.thefstack.com",
-    siteName: "TheFStack - Full-Stack Web Development Services",
-    // images: [
-    //   {
-    //     url: "https://www.thefstack.com/og-thefstack-freelancer.jpg",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "TheFStack Freelance Services - Premium Quality at Indian Rates",
-    //   },
-    // ],
+    siteName: "TheFStack – Full-Stack Web Development Services",
     type: "website",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "India's Top Affordable Freelancer | TheFStack Web Development, SEO & Blog",
+      "Full-Time Developer @ Ivy | Independent Freelance Web Developer – TheFStack",
     description:
-      "Hire an expert freelancer offering comprehensive web development, expert in Next.js, Node.js & AI integration, and cutting-edge blog insights. Affordable, high-quality, and professional services with TheFStack. 24/7 support & competitive pricing.",
+      "Raj offers professional web development & SEO services via TheFStack. Full-time engineer at Ivy. Expert in React, Next.js, Node.js & AI integration.",
     creator: "@TheFStack",
-    // images: ["https://www.thefstack.com/twitter-thefstack-card.jpg"],
   },
   robots: {
     index: true,
@@ -59,13 +49,13 @@ export const metadata = {
   },
   additionalPages: {
     blog: {
-      title: "Blog - TheFStack",
-      description: "Read the latest articles and insights on web development, SEO, and more from TheFStack.",
+      title: "Blog – TheFStack",
+      description: "Latest articles on web development, SEO, and technology trends by Raj at TheFStack.",
       url: "https://www.thefstack.com/blog",
     },
     contact: {
-      title: "Contact - TheFStack",
-      description: "Get in touch with TheFStack for inquiries, consultations, and support.",
+      title: "Contact – TheFStack",
+      description: "Get in touch with Raj for freelance projects, web consultations, and collaboration opportunities.",
       url: "https://www.thefstack.com/contact",
     },
   },
@@ -79,12 +69,13 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
-        {/* Favicon Links */}
+        {/* Favicon */}
         <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon/favicon.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon/favicon.png" />
 
+        {/* JSON-LD: Person */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -92,24 +83,33 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Raj",
-              "jobTitle": "Professional Freelance Developer",
+              "jobTitle": "Full-Time Developer & Independent Web Developer",
               "url": "https://www.thefstack.com",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Ivy"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "TheFStack"
+                }
+              ],
               "sameAs": [
                 "https://linkedin.com/in/thefstack",
-                "https://github.com/thefstack",
-                // "https://twitter.com/TheFStack"
+                "https://github.com/thefstack"
               ],
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "IN"
               },
-              // "image": "https://www.thefstack.com/logo-thefstack-schema.jpg",
               "description":
-                "India-based freelance developer offering high-quality web development, SEO, digital marketing, API development, and blog content creation at competitive rates through TheFStack."
+                "Raj is a full-time software developer at Ivy and an independent freelancer at TheFStack. He specializes in React, Next.js, Node.js, SEO and AI-powered web development."
             }),
           }}
         />
-        {/* Structured Data: Website */}
+
+        {/* JSON-LD: Website */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,12 +120,13 @@ export default function RootLayout({
               "url": "https://www.thefstack.com",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.thefstack.com/",
+                "target": "https://www.thefstack.com/"
               }
             }),
           }}
         />
-        {/* Structured Data: LocalBusiness */}
+
+        {/* JSON-LD: LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -144,18 +145,20 @@ export default function RootLayout({
               },
               "telephone": "+91-9142892678",
               "openingHours": "Mo-Fr 09:00-18:00",
-              "description": "India-based freelance developer offering high-quality web development, API development"
+              "description":
+                "TheFStack provides affordable full-stack web development, API integrations, and SEO services by Raj, an independent developer based in India."
             }),
           }}
         />
-        {/* Structured Data: Service */}
+
+        {/* JSON-LD: Service */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Service",
-              "serviceType": "Web Development",
+              "serviceType": "Web Development & SEO",
               "provider": {
                 "@type": "LocalBusiness",
                 "name": "TheFStack",
@@ -165,11 +168,13 @@ export default function RootLayout({
                 "@type": "Place",
                 "name": "India"
               },
-              "description": "Affordable web development services specializing in Next.js, React, Node.js & AI integration."
+              "description":
+                "Affordable web development and SEO services from India by Raj, a full-time developer at Ivy and independent freelancer via TheFStack. Specializes in React, Next.js, Node.js, and AI integration."
             }),
           }}
         />
       </head>
+
       <body className={inter.className}>
         <Providers>
           <App>{children}</App>

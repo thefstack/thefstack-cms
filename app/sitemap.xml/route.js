@@ -6,10 +6,10 @@ export async function GET() {
   // Static pages to include
   const staticPages = [
     { loc: "https://www.thefstack.com/contact", priority: 0.7 },
-    { loc: "https://www.thefstack.com/signin", priority: 0.5 },
-    { loc: "https://www.thefstack.com/terms", priority: 0.5 },
-    { loc: "https://www.thefstack.com/privacy-policy", priority: 0.5 },
-    { loc: "https://www.thefstack.com/blog", priority: 0.8 },
+    { loc: "https://www.thefstack.com/signin", priority: 0.2 },
+    { loc: "https://www.thefstack.com/terms", priority: 0.2 },
+    { loc: "https://www.thefstack.com/privacy-policy", priority: 0.2 },
+    { loc: "https://www.thefstack.com/blog", priority: 0.6 },
   ];
 
   const staticUrls = staticPages
