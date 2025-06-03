@@ -52,7 +52,9 @@
 }
 
 
-
+.project::-webkit-scrollbar {
+  width: 0px;
+}
 
 .project::-webkit-scrollbar-track {
   background: #393E46;
