@@ -19,7 +19,7 @@ export default function About() {
     </p>
 
     <p>
-      With 2+ years of hands-on experience, I’ve helped startups and small businesses bring their digital ideas to life through clean code and intuitive design.
+      With 1+ years of hands-on experience, I’ve helped startups and small businesses bring their digital ideas to life through clean code and intuitive design.
     </p>
 
     <p>
