@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--background-color);
+  background: var(--secondary-color);
   padding: 2rem 0;
   margin-top:150px;
 }
@@ -19,7 +19,7 @@
 }
 
 .socialLinks a {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-size: 1.5rem;
 }
 

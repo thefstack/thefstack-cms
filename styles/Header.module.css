@@ -1,5 +1,5 @@
 .header {
-  background-color: #DFD0B8;
+  background: var(--accent-color);
   padding-top: 0.4rem;
   z-index: 999;
 
@@ -46,6 +46,7 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: var(--text-color);
 }
 
 @media (max-width: 768px) {
@@ -59,9 +60,10 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     flex-direction: column;
     padding: 1rem;
+    border-top: 1px solid;
   }
 
   .nav.open {

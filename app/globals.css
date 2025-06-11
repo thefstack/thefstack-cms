@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #DFD0B8;
-  --accent-color: #393E46;
-  --text-color: #222831;
+  --primary-color: #121212;
+  --accent-color: #444444;
+  --secondary-color:#B0B0B0;
+  --text-color: #E0E0E0;
 }
 
 html {
@@ -33,6 +34,33 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background: #948979;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Primary color utilities */
+  .primaryBackground {
+    @apply bg-[var(--primary-color)];
+  }
+
+  .primaryText {
+    @apply text-[var(--text-color)];
+  }
+  .secoondaryText {
+    @apply text-[var(--primary-color)];
+  }
+
+  .accentBackground {
+    @apply bg-[var(--accent-color)];
+  }
+
+  .secondaryBackground {
+    @apply bg-[var(--secondary-color)];
+  }
+
 }
 
 

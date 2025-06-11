@@ -10,7 +10,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.content}>
         <h1 className="flex flex-wrap justify-center">Hey, I'm Raj</h1>
-        <div className="flex flex-row gap-2 flex-wrap items-center justify-center text-2xl font-bold text-center text-[#222831]">
+        <div className="flex flex-row gap-2 flex-wrap items-center justify-center text-2xl font-bold text-center primaryText">
           I'M A FULL STACK DEVELOPER CRAFTING SEAMLESS
           <TrueFocus
             sentence={["Front-End", " Back-End"]}
@@ -25,7 +25,7 @@ export default function Hero() {
 
         <div className="mt-12">
           <Magnet padding={90} disabled={false} magnetStrength={5}>
-            <Link href="/#contact" className="bg-[#222831] text-[#DFD0B8] px-5 py-2 rounded-lg">Let's Connect</Link>
+            <Link href="/#contact" className="accentBackground primaryText px-5 py-2 rounded-[8px]">Let's Connect</Link>
           </Magnet>
         </div>
       </div>

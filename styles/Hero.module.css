@@ -4,7 +4,6 @@
   gap: 2rem;
   padding: 2rem;
   min-height: 95dvh;
-  background-color: var(--secondary-color);
 }
 
 .content {
@@ -18,12 +17,12 @@
 .content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #222831;
+  color: var(--text-color);
 }
 
 .content p {
   font-size: 1.2rem;
-  color: #222831;
+  color: var(--text-color);
   margin-top: 2rem;
 }
 

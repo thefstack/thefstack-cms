@@ -126,7 +126,7 @@ export default function ContactForm() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="bg-[rgba(255,255,255,0.302)] backdrop-blur-[10px] border border-[rgba(255,255,255,0.2)] rounded-[12px] shadow-lg p-3 xs:p-4 sm:p-6 lg:p-8 relative min-h-[500px] xs:min-h-[600px] sm:min-h-[700px] overflow-hidden">
+      <div className="secondaryBackground backdrop-blur-[10px] border border-[rgba(255,255,255,0.2)] rounded-[12px] shadow-lg p-3 xs:p-4 sm:p-6 lg:p-8 relative min-h-[500px] xs:min-h-[600px] sm:min-h-[700px] overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 backdrop-blur-sm rounded-[8px]" />
 
@@ -317,7 +317,7 @@ export default function ContactForm() {
           {/* Header */}
           <div className="text-center mb-4 xs:mb-6 sm:mb-8 relative z-10">
             <h1 className="text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Let's Connect</h1>
-            <p className="text-xs xs:text-sm sm:text-base text-gray-700 mt-1 xs:mt-2 px-2">
+            <p className="text-xs xs:text-sm sm:text-base secondaryText mt-1 xs:mt-2 px-2">
               Fill out the form and watch the delivery process!
             </p>
           </div>
@@ -335,7 +335,7 @@ export default function ContactForm() {
                 >
                   {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-xs xs:text-sm font-medium text-gray-700 mb-1 xs:mb-2">
+                    <label htmlFor="name" className="block text-xs xs:text-sm font-medium secondaryText mb-1 xs:mb-2">
                       Name *
                     </label>
                     <input
@@ -353,7 +353,7 @@ export default function ContactForm() {
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-xs xs:text-sm font-medium text-gray-700 mb-1 xs:mb-2">
+                    <label htmlFor="email" className="block text-xs xs:text-sm font-medium secondaryText mb-1 xs:mb-2">
                       Email *
                     </label>
                     <input
@@ -371,7 +371,7 @@ export default function ContactForm() {
 
                   {/* Phone */}
                   <div>
-                    <label htmlFor="phone" className="block text-xs xs:text-sm font-medium text-gray-700 mb-1 xs:mb-2">
+                    <label htmlFor="phone" className="block text-xs xs:text-sm font-medium secondaryText mb-1 xs:mb-2">
                       Phone
                     </label>
                     <input
@@ -390,7 +390,7 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-xs xs:text-sm font-medium text-gray-700 mb-1 xs:mb-2"
+                      className="block text-xs xs:text-sm font-medium secondaryText mb-1 xs:mb-2"
                     >
                       Message *
                     </label>
@@ -411,7 +411,7 @@ export default function ContactForm() {
                   <motion.button
                     type="submit"
                     disabled={isLoading || !isFormValid}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-2 xs:py-3 px-3 xs:px-4 rounded-[8px] shadow-lg transition-colors duration-200 flex items-center justify-center space-x-2 disabled:cursor-not-allowed text-xs xs:text-sm sm:text-base"
+                    className="w-full primaryBackground  disabled:accentBackground text-white font-bold py-2 xs:py-3 px-3 xs:px-4 rounded-[8px] shadow-lg transition-colors duration-200 flex items-center justify-center space-x-2 disabled:cursor-not-allowed text-xs xs:text-sm sm:text-base"
                     whileHover={{ scale: isFormValid && !isLoading ? 1.03 : 1 }}
                     whileTap={{ scale: isFormValid && !isLoading ? 0.97 : 1 }}
                   >
