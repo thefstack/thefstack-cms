@@ -10,7 +10,7 @@ const Projects = () => {
     {
       title: 'Live AI Mock Interview System',
       description: 'Developed a cutting-edge 1-on-1 live AI mock interview platform. The system dynamically conducts interviews based on specific job descriptions and job titles, providing instant, personalized feedback on performance, communication, and technical answers.',
-      image: 'https://images.pexels.com/photos/3760065/pexels-photo-3760065.jpeg?auto=compress&cs=tinysrgb&w=800', // Placeholder for interview/AI
+      image: '/images/interview.png', // Placeholder for interview/AI
       technologies: ['OpenAI API', 'Node.js', 'Next.js', 'WebRTC', 'React.js'], // Implied technologies + WebRTC for live interaction
       liveUrl: 'https://prepai.ivyproschool.com', // Part of prepai
       githubUrl: '#', // Not specified
@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: 'Resume Optimizer & ATS Checker (AI-powered)',
       description: 'Engineered an AI-driven system to optimize resumes and perform ATS (Applicant Tracking System) checks. Users receive real-time feedback and suggestions to improve their resume’s compatibility and impact, enhancing job application success rates.',
-      image: 'https://images.pexels.com/photos/6256038/pexels-photo-6256038.jpeg?auto=compress&cs=tinysrgb&w=800', // Placeholder image for resume/AI
+      image: '/images/resume.png', // Placeholder image for resume/AI
       technologies: ['OpenAI API', 'Node.js', 'Next.js', 'React.js'], // Implied technologies
       liveUrl: 'https://prepai.ivyproschool.com', // Part of prepai
       githubUrl: '#', // Not specified
@@ -28,7 +28,7 @@ const Projects = () => {
     {
       title: 'AI-Generated Quizzing System',
       description: 'Implemented backend logic to dynamically generate 10 MCQ questions using the OpenAI API. Built an AI-powered feedback module that analyzes user performance, identifies strengths/weaknesses, and suggests personalized learning paths. Enabled quiz generation from uploaded documents.',
-      image: 'https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=800', // Placeholder image for AI quiz
+      image: '/images/quiz.png', // Placeholder image for AI quiz
       technologies: ['OpenAI API', 'Node.js', 'Next.js'], // Implied technologies
       liveUrl: 'https://prepai.ivyproschool.com', // From resume work experience
       githubUrl: '#', // Not specified in resume
@@ -37,7 +37,7 @@ const Projects = () => {
     {
       title: 'AI Chatbot System',
       description: 'Developed the backend using Node.js, Next.js (serverless functions), and OpenAI API to build an intelligent chatbot. Enabled file-based question answering from uploaded documents and institutional content, integrating domain-specific conversation flows.',
-      image: 'https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&w=800', // Placeholder image for AI
+      image: '/images/chat.png', // Placeholder image for AI
       technologies: ['Node.js', 'Next.js', 'OpenAI API', 'Serverless Functions'],
       liveUrl: 'https://prepai.ivyproschool.com', // From resume work experience
       githubUrl: '#', // Not specified in resume
@@ -46,7 +46,7 @@ const Projects = () => {
     {
       title: 'Lesson Planning Module',
       description: 'Developed both frontend and backend functionalities for structured lesson planning within an AI-powered learning platform. Users can generate study plans and access curated educational content.',
-      image: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=800', // Placeholder image for planning
+      image: '/images/lesson.png', // Placeholder image for planning
       technologies: ['React.js', 'Next.js', 'Node.js', 'MongoDB'], // Implied technologies
       liveUrl: 'https://prepai.ivyproschool.com', // From resume work experience
       githubUrl: '#', // Not specified in resume
@@ -98,7 +98,7 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4 text-white">
                       {project.liveUrl && project.liveUrl !== '#' && (
