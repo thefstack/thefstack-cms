@@ -31,7 +31,7 @@ const Skills = () => {
         { name: 'Express.js', level: 85 },
         { name: 'REST APIs', level: 90 },
         { name: 'Serverless Functions', level: 80 },
-        { name: 'Socket.io', level: 75 }
+        { name: 'Socket.io', level: 75 },
       ],
     },
     {
