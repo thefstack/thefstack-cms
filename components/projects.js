@@ -10,7 +10,7 @@ const Projects = () => {
     {
       title: 'Live AI Mock Interview System',
       description: 'Developed a cutting-edge 1-on-1 live AI mock interview platform. The system dynamically conducts interviews based on specific job descriptions and job titles, providing instant, personalized feedback on performance, communication, and technical answers.',
-      image: '/images/interview.png', // Placeholder for interview/AI
+      image: 'https://raw.githubusercontent.com/thefstack/photos/main/interview.png', // Placeholder for interview/AI
       technologies: ['OpenAI API', 'Node.js', 'Next.js', 'WebRTC', 'React.js'], // Implied technologies + WebRTC for live interaction
       liveUrl: 'https://prepai.ivyproschool.com', // Part of prepai
       githubUrl: '#', // Not specified
@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: 'Resume Optimizer & ATS Checker (AI-powered)',
       description: 'Engineered an AI-driven system to optimize resumes and perform ATS (Applicant Tracking System) checks. Users receive real-time feedback and suggestions to improve their resume’s compatibility and impact, enhancing job application success rates.',
-      image: '/images/resume.png', // Placeholder image for resume/AI
+      image: 'https://raw.githubusercontent.com/thefstack/photos/main/resume.png', // Placeholder image for resume/AI
       technologies: ['OpenAI API', 'Node.js', 'Next.js', 'React.js'], // Implied technologies
       liveUrl: 'https://prepai.ivyproschool.com', // Part of prepai
       githubUrl: '#', // Not specified
@@ -28,7 +28,7 @@ const Projects = () => {
     {
       title: 'AI-Generated Quizzing System',
       description: 'Implemented backend logic to dynamically generate 10 MCQ questions using the OpenAI API. Built an AI-powered feedback module that analyzes user performance, identifies strengths/weaknesses, and suggests personalized learning paths. Enabled quiz generation from uploaded documents.',
-      image: '/images/quiz.png', // Placeholder image for AI quiz
+      image: 'https://raw.githubusercontent.com/thefstack/photos/main/quiz.png', // Placeholder image for AI quiz
       technologies: ['OpenAI API', 'Node.js', 'Next.js'], // Implied technologies
       liveUrl: 'https://prepai.ivyproschool.com', // From resume work experience
       githubUrl: '#', // Not specified in resume
@@ -37,7 +37,7 @@ const Projects = () => {
     {
       title: 'AI Chatbot System',
       description: 'Developed the backend using Node.js, Next.js (serverless functions), and OpenAI API to build an intelligent chatbot. Enabled file-based question answering from uploaded documents and institutional content, integrating domain-specific conversation flows.',
-      image: '/images/chat.png', // Placeholder image for AI
+      image: 'https://raw.githubusercontent.com/thefstack/photos/main/chat.png', // Placeholder image for AI
       technologies: ['Node.js', 'Next.js', 'OpenAI API', 'Serverless Functions'],
       liveUrl: 'https://prepai.ivyproschool.com', // From resume work experience
       githubUrl: '#', // Not specified in resume
@@ -46,7 +46,7 @@ const Projects = () => {
     {
       title: 'Lesson Planning Module',
       description: 'Developed both frontend and backend functionalities for structured lesson planning within an AI-powered learning platform. Users can generate study plans and access curated educational content.',
-      image: '/images/lesson.png', // Placeholder image for planning
+      image: 'https://raw.githubusercontent.com/thefstack/photos/main/lesson.png', // Placeholder image for planning
       technologies: ['React.js', 'Next.js', 'Node.js', 'MongoDB'], // Implied technologies
       liveUrl: 'https://prepai.ivyproschool.com', // From resume work experience
       githubUrl: '#', // Not specified in resume
