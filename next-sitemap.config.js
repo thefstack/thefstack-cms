@@ -1,6 +1,10 @@
 module.exports = {
   siteUrl: 'https://thefstack.com',
   generateRobotsTxt: true,
+  changefreq: 'daily',
+  priority: 0.7,
+  sitemapSize: 5000,
+  autoLastmod: true,
   robotsTxtOptions: {
     policies: [
       {
@@ -8,19 +12,5 @@ module.exports = {
         allow: '/',
       },
     ],
-  },
-  transform: async (config, path) => {
-    let priority = 0.7;
-
-    if (path === '/') {
-      priority = 1.0;
-    }
-
-    return {
-      loc: path,
-      changefreq: 'daily',
-      priority,
-      lastmod: new Date().toISOString(),
-    };
   },
 };
