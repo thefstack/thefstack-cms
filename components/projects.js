@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import Image from 'next/image';
 
 const Projects = () => {
   const projects = [
@@ -95,9 +96,11 @@ const Projects = () => {
               {featuredProjects.map((project, index) => (
                 <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow duration-300">
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={100}
+                      height={100}
                       className="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4 text-white">
@@ -164,7 +167,9 @@ const Projects = () => {
               {otherProjects.map((project, index) => (
                 <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow duration-300">
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
+                      width={100}
+                      height={100}
                       src={project.image}
                       alt={project.title}
                       className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
