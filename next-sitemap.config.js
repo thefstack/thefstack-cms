@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://prepai.ivyproschool.com',
+  siteUrl: 'https://thefstack.com',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
